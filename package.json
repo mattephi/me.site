@@ -1,0 +1,15 @@
+{
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "cssnano": "^6.0.1",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5"
+  },
+  "dependencies": {
+    "prettier": "^3.0.3",
+    "tailwindcss-neumorphism": "^0.1.0"
+  },
+  "scripts": {
+    "start": "bundle exec jekyll serve --host 0.0.0.0"
+  }
+}

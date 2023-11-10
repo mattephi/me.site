@@ -1,0 +1,22 @@
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+title: "m8dotpie" # the name of your site, e.g. ACME Corp.
+
+plugins:
+  - jekyll-postcss
+
+postcss:
+  cache: false
+
+collections:
+  jobs:
+    output: true
+    permalink: /jobs/:path/
+  education:
+    output: true
+    permalink: /education/:path/
+  research:
+    output: true
+    permalink: /research/:path/
+  posts:
+    output: false

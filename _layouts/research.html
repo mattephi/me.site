@@ -1,0 +1,83 @@
+---
+layout: default
+---
+
+<p class="mt-8" />
+
+{% assign filter = page.filter %}
+
+<p class="text-lg font-bold text-gray-600"> RESEARCH </p>
+
+<ul class="flex flex-wrap">
+    {% if filter == 'any' %}
+    <li class="nm-inset-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
+        <a href="research-any">Any</a>
+    </li>
+    {% else %}
+    <li class="nm-flat-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
+        <a href="research-any">Any</a>
+    </li>
+    {% endif %}
+    {% if filter == 'now' %}
+    <li class="nm-inset-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
+        <a href="research-now">In Progress</a>
+    </li>
+    {% else %}
+    <li class="nm-flat-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
+        <a href="research-now">In Progress</a>
+    </li>
+    {% endif %}
+    {% if filter == 'done' %}
+    <li class="nm-inset-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
+        <a href="research-done">Completed</a>
+    </li>
+    {% else %}
+    <li class="nm-flat-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
+        <a href="research-done">Completed</a>
+    </li>
+    {% endif %}
+</ul>
+
+<div class="flex justify-center items-center">
+    <ul class="w-full">
+        {% assign research = site.research | sort: 'date' %}
+        {% assign research = research | reverse %}
+        {% unless filter == 'any' %}
+        {% assign research = research | where_exp: "item", "item.progress == filter" %}
+        {% endunless %}
+        {% for res in research %}
+        <li class="text-gray-600 hover:text-gray-950 nm-flat-gray-200-lg mt-2 p-4 rounded-md">
+            <p class="text-gray-900 font-medium">{{ res.title }}</p>
+            <div class="flex flew-wrap">
+                <p class="text-gray-600 font-medium text-sm">{{ res.employer }} </p>
+                <p class="ml-1 text-gray-400 font-medium text-sm">{{res.duration_str}} </p>
+            </div>
+
+
+            <ul class="flex flex-wrap">
+                {% for item in res.stack %}
+                <li class="text-gray-400 font-light text-sm">
+                    <p class="">{{item}}</p>
+
+                </li>
+                {% unless forloop.last %}
+                <p class="text-gray-400 font-light text-sm ml-1 mr-1">·</p>
+                {% endunless %}
+                {% endfor %}
+            </ul>
+            {{res.content}}
+        </li>
+        {% unless forloop.last %}
+        <li>
+            <p class="flex flex-wrap p-1 m-3 nm-inset-gray-200-lg rounded-md" />
+        </li>
+
+        {% endunless %}
+        {% endfor %}
+        {% if research.size == 0 %}
+        <li class="text-center w-full text-gray-600 hover:text-gray-950 nm-inset-gray-200-lg mt-2 p-10 rounded-md">
+            <p class="text-gray-900 font-medium">Nothing here to show.</p>
+        </li>
+        {% endif %}
+    </ul>
+</div>
