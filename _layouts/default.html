@@ -9,19 +9,18 @@
 </head>
 
 <body>
-  <div class="flex justify-center h-screen bg-gray-100">
-    <div class="w-full lg:w-1/2 max-h-screen p-8 overflow-y-auto relative nm-flat-gray-100-lg">
+  <div class="flex justify-center min-h-screen bg-gray-100">
+    <div class="w-full lg:w-1/2 p-8 relative nm-flat-gray-100-lg">
       {% include header.html %}
-
-      {{content}}
-
+      <div class="pb-16">
+        {{content}}
+      </div>
       <div class="flex-grow" />
-      <div class=" p-4 absolute bottom-0 left-0 w-full">
+      <div class="p-4 absolute bottom-0 right-0 w-full">
         {% include footer.html %}
       </div>
     </div>
   </div>
-
 </body>
 
 </html>
