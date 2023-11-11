@@ -46,11 +46,11 @@ layout: default
         {% assign research = research | where_exp: "item", "item.progress == filter" %}
         {% endunless %}
         {% for res in research %}
-        <li class="text-gray-600 hover:text-gray-950 nm-flat-gray-200-lg mt-2 p-4 rounded-md">
+        <li class="text-gray-600 nm-flat-gray-200-lg mt-2 p-4 rounded-md">
             <p class="text-gray-900 font-bold">{{ res.title }}</p>
             <div class="flex flew-wrap">
                 <p class="text-gray-600 font-bold text-sm">{{ res.employer }} </p>
-                <p class="ml-1 text-gray-400 font-medium text-sm">{{res.duration_str}} </p>
+                <p class="ml-1 text-gray-400 font-medium text-sm">{{res.research_type}} </p>
             </div>
 
 

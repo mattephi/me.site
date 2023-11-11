@@ -1,7 +1,9 @@
 ---
 title: On The Variational Integrators in Optimal Trajectory Planning for Robotic Locomotion
 progress: now
+research_type: Bachelor Thesis
 employer: Innopolis University
+date: 2023-01-01
 keywords:
   - Variational Mechanics
   - Variational Integrators
