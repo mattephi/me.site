@@ -19,27 +19,19 @@ RUN apk update && \
     nodejs \
     npm \
     yarn && \
-    gem install bundler:2.2.30 && \
-    mkdir /app
+    gem install bundler:2.2.30
 
-# Set the working directory in the container
+RUN mkdir /app
+
 WORKDIR /app
+COPY Gemfile* /app
+COPY package.json /app
 
-# Copy your Jekyll project files to the container
-COPY . .
-
-# Install Jekyll and its dependencies
-RUN bundle config set path 'vendor/bundle' && \
-    bundle install
-
-# Install Node.js dependencies using Yarn
+RUN bundle config set path 'vendor/bundle'
+RUN bundle install
 RUN yarn install
-RUN export JEKYLL_ENV=development jekyll build
-# Build the Jekyll site
+
 RUN bundle exec jekyll build --trace
 
-# Expose port 4000 for Jekyll serve
-EXPOSE 4000
-
 # Start the Jekyll server when the container runs
-CMD ["bundle", "exec", "jekyll", "serve", "--host", "0.0.0.0"]
+CMD ["sh", "entry.sh"]

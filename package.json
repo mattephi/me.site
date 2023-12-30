@@ -8,9 +8,7 @@
   },
   "dependencies": {
     "prettier": "latest",
-    "tailwindcss-neumorphism": "latest"
-  },
-  "scripts": {
-    "start": "bundle exec jekyll serve --host 0.0.0.0"
+    "tailwindcss-neumorphism": "latest",
+    "express": "latest"
   }
 }
