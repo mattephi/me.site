@@ -6,122 +6,107 @@ layout: default
 
 {% assign filter = page.filter %}
 
-<p class="text-lg font-bold text-gray-600"> EDUCATION </p>
+<p class="text-lg font-bold text-gray-600">EDUCATION</p>
 
 <ul class="flex flex-wrap">
-    <li class="text-sm font-bold text-gray-600">
-        Current status
-    </li>
-    <li class="text-sm text-gray-600">
-        : Innopolis University student
-    </li>
+  <li class="text-sm font-bold text-gray-600">Current status</li>
+  <li class="text-sm text-gray-600">: Innopolis University student</li>
 </ul>
 
-
 <ul class="flex flex-wrap">
-    {% if filter == 'any' %}
-    <li class="nm-inset-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
-        <a href="education-any">Any</a>
-    </li>
-    {% else %}
-    <li class="nm-flat-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
-        <a href="education-any">Any</a>
-    </li>
-    {% endif %}
-    {% if filter == 'prim' %}
-    <li class="nm-inset-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
-        <a href="education-prim">General</a>
-    </li>
-    {% else %}
-    <li class="nm-flat-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
-        <a href="education-prim">General</a>
-    </li>
-    {% endif %}
-    {% if filter == 'robotics' %}
-    <li class="nm-inset-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
-        <a href="education-robotics">Robotics</a>
-    </li>
-    {% else %}
-    <li class="nm-flat-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
-        <a href="education-robotics">Robotics</a>
-    </li>
-    {% endif %}
-    {% if filter == 'quantum' %}
-    <li class="nm-inset-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
-        <a href="education-quantum">Quantum</a>
-    </li>
-    {% else %}
-    <li class="nm-flat-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
-        <a href="education-quantum">Quantum</a>
-    </li>
-    {% endif %}
-    {% if filter == 'math' %}
-    <li class="nm-inset-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
-        <a href="education-math">Mathematics</a>
-    </li>
-    {% else %}
-    <li class="nm-flat-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
-        <a href="education-math">Mathematics</a>
-    </li>
-    {% endif %}
-    {% if filter == 'devel' %}
-    <li class="nm-inset-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
-        <a href="education-devel">Programming</a>
-    </li>
-    {% else %}
-    <li class="nm-flat-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
-        <a href="education-devel">Programming</a>
-    </li>
-    {% endif %}
+  {% if filter == 'any' %}
+  <li class="nm-inset-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
+    <a href="education-any">Any</a>
+  </li>
+  {% else %}
+  <li class="nm-flat-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
+    <a href="education-any">Any</a>
+  </li>
+  {% endif %} {% if filter == 'prim' %}
+  <li class="nm-inset-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
+    <a href="education-prim">General</a>
+  </li>
+  {% else %}
+  <li class="nm-flat-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
+    <a href="education-prim">General</a>
+  </li>
+  {% endif %} {% if filter == 'robotics' %}
+  <li class="nm-inset-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
+    <a href="education-robotics">Robotics</a>
+  </li>
+  {% else %}
+  <li class="nm-flat-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
+    <a href="education-robotics">Robotics</a>
+  </li>
+  {% endif %} {% if filter == 'quantum' %}
+  <li class="nm-inset-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
+    <a href="education-quantum">Quantum</a>
+  </li>
+  {% else %}
+  <li class="nm-flat-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
+    <a href="education-quantum">Quantum</a>
+  </li>
+  {% endif %} {% if filter == 'math' %}
+  <li class="nm-inset-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
+    <a href="education-math">Mathematics</a>
+  </li>
+  {% else %}
+  <li class="nm-flat-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
+    <a href="education-math">Mathematics</a>
+  </li>
+  {% endif %} {% if filter == 'devel' %}
+  <li class="nm-inset-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
+    <a href="education-devel">Programming</a>
+  </li>
+  {% else %}
+  <li class="nm-flat-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
+    <a href="education-devel">Programming</a>
+  </li>
+  {% endif %}
 </ul>
 
 <div class="flex justify-center items-center">
-    <ul class="w-full md:w-1/2 lg:w-1/2">
-        {% assign schools = site.education | sort: 'date' %}
-        {% assign schools = schools | reverse %}
-        {% unless filter == 'any' %}
-        {% assign schools = schools | where_exp: "item", "item.cat contains filter" %}
-        {% endunless %}
-        {% for school in schools %}
-        <li class="text-gray-600 nm-flat-gray-200-lg mt-2 p-4 rounded-md">
-            <p class="text-gray-900 font-bold">{{school.title}}</p>
+  <ul class="w-full md:w-1/2 lg:w-1/2">
+    {% assign schools = site.education | sort: 'date' %} {% assign schools =
+    schools | reverse %} {% unless filter == 'any' %} {% assign schools =
+    schools | where_exp: "item", "item.cat contains filter" %} {% endunless %}
+    {% for school in schools %}
+    <li class="text-gray-600 nm-flat-gray-200-lg mt-2 p-4 rounded-md">
+      <p class="text-gray-900 font-bold">{{school.title}}</p>
 
-
-            <ul class="flex flex-wrap">
-                {% for item in school.hosts %}
-                <li class="text-gray-600 font-bold text-xs">
-                    <p class="">{{item}}</p>
-
-                </li>
-                {% unless forloop.last %}
-                <p class="text-gray-600 font-bold text-xs ml-1 mr-1">·</p>
-                {% endunless %}
-                {% endfor %}
-            </ul>
-            <a href="{{school.info_url}}" target="_blank" class="text-sm text-blue-400">{{school.short_url}}</a>
-            <p class=" text-gray-400 font-medium text-sm">{{school.duration_str}} </p>
-
-            <ul class="flex flex-wrap">
-                {% for item in school.stack %}
-                <li class="text-gray-400 font-light text-xs">
-                    <p class="">{{item}}</p>
-
-                </li>
-                {% unless forloop.last %}
-                <p class="text-gray-400 font-light text-xs ml-1 mr-1">·</p>
-                {% endunless %}
-                {% endfor %}
-            </ul>
-            {{school.content}}
-
-
+      <ul class="flex flex-wrap">
+        {% for item in school.hosts %}
+        <li class="text-gray-600 font-bold text-xs">
+          <p class="">{{item}}</p>
         </li>
         {% unless forloop.last %}
-        <li>
-            <p class="flex flex-wrap p-1 m-3 nm-inset-gray-200-lg rounded-md" />
-        </li>
+        <p class="text-gray-600 font-bold text-xs ml-1 mr-1">·</p>
+        {% endunless %} {% endfor %}
+      </ul>
+      <a
+        href="{{school.info_url}}"
+        target="_blank"
+        class="text-sm text-blue-400"
+        >{{school.short_url}}</a
+      >
+      <p class="text-gray-400 font-medium text-sm">{{school.duration_str}}</p>
 
-        {% endunless %}
-        {% endfor %}
-    </ul>
+      <ul class="flex flex-wrap">
+        {% for item in school.stack %}
+        <li class="text-gray-400 font-light text-xs">
+          <p class="">{{item}}</p>
+        </li>
+        {% unless forloop.last %}
+        <p class="text-gray-400 font-light text-xs ml-1 mr-1">·</p>
+        {% endunless %} {% endfor %}
+      </ul>
+      {{school.content}}
+    </li>
+    {% unless forloop.last %}
+    <li>
+      <p class="flex flex-wrap p-1 m-3 nm-inset-gray-200-lg rounded-md" />
+    </li>
+
+    {% endunless %} {% endfor %}
+  </ul>
 </div>
