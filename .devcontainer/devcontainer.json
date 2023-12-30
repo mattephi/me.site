@@ -1,0 +1,21 @@
+// .devcontainer/devcontainer.json
+{
+  "name": "Jekyll Dev Container",
+  "dockerFile": "../Dockerfile",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ecmel.vscode-html-css",
+        "sibiraj-s.vscode-scss-formatter",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "stivo.tailwind-fold",
+        "mechatroner.rainbow-csv"
+      ],
+      "settings": {
+        "ruby.intelephense.useBundler": true
+      },
+      "postCreateCommand": "yarn install && bundle install"
+    }
+  }
+}

@@ -1,5 +1,7 @@
 _site/
 .sass-cache/
+.ruby-lsp/
+vendor/
 .jekyll-cache/
 .jekyll-metadata
 node_modules
