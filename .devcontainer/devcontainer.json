@@ -1,7 +1,9 @@
 // .devcontainer/devcontainer.json
 {
   "name": "Jekyll Dev Container",
-  "dockerFile": "../Dockerfile",
+  "dockerComposeFile": ["docker-compose.yml"],
+  "service": "me.site", // Specify the name of the service to run (optional)
+  "workspaceFolder": "/app", // Specify the workspace folder in the container
   "customizations": {
     "vscode": {
       "extensions": [
@@ -14,8 +16,7 @@
       ],
       "settings": {
         "ruby.intelephense.useBundler": true
-      },
-      "postCreateCommand": "yarn install && bundle install"
+      }
     }
   }
 }
