@@ -14,29 +14,29 @@ layout: default
 
 <ul class="flex flex-wrap">
   {% if filter == 'any' %}
-    <li class="nm-inset-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
+    <li class="nm-inset-gray-100-sm p-2 m-1 rounded-lg text-gray-900">
       <a href="employment-any">Any</a>
     </li>
   {% else %}
-    <li class="nm-flat-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
+    <li class="nm-flat-gray-100-sm p-2 m-1 rounded-lg text-gray-900">
       <a href="employment-any">Any</a>
     </li>
   {% endif %}
   {% if filter == 'devel' %}
-    <li class="nm-inset-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
+    <li class="nm-inset-gray-100-sm p-2 m-1 rounded-lg text-gray-900">
       <a href="employment-devel">Software Engineering</a>
     </li>
   {% else %}
-    <li class="nm-flat-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
+    <li class="nm-flat-gray-100-sm p-2 m-1 rounded-lg text-gray-900">
       <a href="employment-devel">Software Engineering</a>
     </li>
   {% endif %}
   {% if filter == 'math' %}
-    <li class="nm-inset-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
+    <li class="nm-inset-gray-100-sm p-2 m-1 rounded-lg text-gray-900">
       <a href="employment-math">Mathematics</a>
     </li>
   {% else %}
-    <li class="nm-flat-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
+    <li class="nm-flat-gray-100-sm p-2 m-1 rounded-lg text-gray-900">
       <a href="employment-math">Mathematics</a>
     </li>
   {% endif %}
@@ -50,7 +50,7 @@ layout: default
       {% assign jobs = jobs | where_exp: 'item', 'item.cat contains filter' %}
     {% endunless %}
     {% for job in jobs %}
-      <li class="text-gray-600 nm-flat-gray-200-lg mt-2 p-4 rounded-md">
+      <li class="text-gray-600 nm-flat-gray-100-lg mt-2 p-4 rounded-md">
         <p class="text-gray-900 font-bold">{{ job.title }}</p>
         <div class="flex flew-wrap">
           <p class="text-gray-600 font-medium text-sm">{{ job.employer }}</p>
@@ -73,7 +73,7 @@ layout: default
       </li>
       {% unless forloop.last %}
         <li>
-          <p class="flex flex-wrap p-1 m-3 nm-inset-gray-200-lg rounded-md" />
+          <p class="flex flex-wrap p-1 m-3 nm-inset-gray-100-lg rounded-md" />
         </li>
       {% endunless %}
     {% endfor %}
