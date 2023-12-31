@@ -1,88 +1,81 @@
 ---
 layout: default
 ---
-
 <p class="mt-8" />
 
 {% assign filter = page.filter %}
 
-<p class="text-lg font-bold text-gray-600"> EMPLOYMENT </p>
+<p class="text-lg font-bold text-gray-600">EMPLOYMENT</p>
 
 <ul class="flex flex-wrap">
-    <li class="text-sm font-bold text-gray-600">
-        Current status
-    </li>
-    <li class="text-sm text-gray-600">
-        : vacant
-    </li>
+  <li class="text-sm font-bold text-gray-600">Current status</li>
+  <li class="text-sm text-gray-600">: vacant</li>
 </ul>
 
-
 <ul class="flex flex-wrap">
-    {% if filter == 'any' %}
+  {% if filter == 'any' %}
     <li class="nm-inset-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
-        <a href="employment-any">Any</a>
+      <a href="employment-any">Any</a>
     </li>
-    {% else %}
+  {% else %}
     <li class="nm-flat-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
-        <a href="employment-any">Any</a>
+      <a href="employment-any">Any</a>
     </li>
-    {% endif %}
-    {% if filter == 'devel' %}
+  {% endif %}
+  {% if filter == 'devel' %}
     <li class="nm-inset-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
-        <a href="employment-devel">Software Engineering</a>
+      <a href="employment-devel">Software Engineering</a>
     </li>
-    {% else %}
+  {% else %}
     <li class="nm-flat-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
-        <a href="employment-devel">Software Engineering</a>
+      <a href="employment-devel">Software Engineering</a>
     </li>
-    {% endif %}
-    {% if filter == 'math' %}
+  {% endif %}
+  {% if filter == 'math' %}
     <li class="nm-inset-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
-        <a href="employment-math">Mathematics</a>
+      <a href="employment-math">Mathematics</a>
     </li>
-    {% else %}
+  {% else %}
     <li class="nm-flat-gray-200-sm p-2 m-1 rounded-lg text-gray-900">
-        <a href="employment-math">Mathematics</a>
+      <a href="employment-math">Mathematics</a>
     </li>
-    {% endif %}
+  {% endif %}
 </ul>
 
 <div class="flex justify-center items-center">
-    <ul class="w-full md:w-1/2 lg:w-1/2">
-        {% assign jobs = site.jobs | sort: 'date' %}
-        {% assign jobs = jobs | reverse %}
-        {% unless filter == 'any' %}
-        {% assign jobs = jobs | where_exp: "item", "item.cat contains filter" %}
-        {% endunless %}
-        {% for job in jobs %}
-        <li class="text-gray-600 nm-flat-gray-200-lg mt-2 p-4 rounded-md">
-            <p class="text-gray-900 font-bold">{{ job.title }}</p>
-            <div class="flex flew-wrap">
-                <p class="text-gray-600 font-medium text-sm">{{ job.employer }} </p>
-                <p class="ml-1 text-gray-400 font-medium text-sm">{{job.duration_str}} </p>
-            </div>
+  <ul class="w-full">
+    {% assign jobs = site.jobs | sort: 'date' %}
+    {% assign jobs = jobs | reverse %}
+    {% unless filter == 'any' %}
+      {% assign jobs = jobs | where_exp: 'item', 'item.cat contains filter' %}
+    {% endunless %}
+    {% for job in jobs %}
+      <li class="text-gray-600 nm-flat-gray-200-lg mt-2 p-4 rounded-md">
+        <p class="text-gray-900 font-bold">{{ job.title }}</p>
+        <div class="flex flew-wrap">
+          <p class="text-gray-600 font-medium text-sm">{{ job.employer }}</p>
+          <p class="ml-1 text-gray-400 font-medium text-sm">
+            {{ job.duration_str }}
+          </p>
+        </div>
 
-
-            <ul class="flex flex-wrap">
-                {% for item in job.stack %}
-                <li class="text-gray-400 font-light text-sm">
-                    <p class="">{{item}}</p>
-
-                </li>
-                {% unless forloop.last %}
-                <p class="text-gray-400 font-light text-sm ml-1 mr-1">·</p>
-                {% endunless %}
-                {% endfor %}
-            </ul>
-            {{job.content}}
-        </li>
-        {% unless forloop.last %}
+        <ul class="flex flex-wrap">
+          {% for item in job.stack %}
+            <li class="text-gray-400 font-light text-sm">
+              <p class="">{{ item }}</p>
+            </li>
+            {% unless forloop.last %}
+              <p class="text-gray-400 font-light text-sm ml-1 mr-1">·</p>
+            {% endunless %}
+          {% endfor %}
+        </ul>
+        {{ job.content }}
+      </li>
+      {% unless forloop.last %}
         <li>
-            <p class="flex flex-wrap p-1 m-3 nm-inset-gray-200-lg rounded-md" />
+          <p class="flex flex-wrap p-1 m-3 nm-inset-gray-200-lg rounded-md" />
         </li>
-
-        {% endunless %}
-        {% endfor %}
-    </ul>
+      {% endunless %}
+    {% endfor %}
+  </ul>
 </div>

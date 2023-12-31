@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "@shopify/prettier-plugin-liquid": "^1.4.0",
     "autoprefixer": "latest",
     "cssnano": "latest",
     "postcss": "latest",
@@ -7,8 +8,8 @@
     "tailwindcss": "latest"
   },
   "dependencies": {
-    "prettier": "latest",
-    "tailwindcss-neumorphism": "latest",
-    "express": "latest"
+    "express": "latest",
+    "prettier": "^3.1.1",
+    "tailwindcss-neumorphism": "latest"
   }
 }

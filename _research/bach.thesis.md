@@ -4,6 +4,7 @@ progress: now
 research_type: Bachelor Thesis
 employer: Innopolis University
 date: 2023-01-01
+showcase: true
 keywords:
   - Variational Mechanics
   - Variational Integrators

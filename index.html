@@ -1,14 +1,19 @@
 ---
 layout: default
 ---
-
 <p class="mt-8" />
-<div class="inline-block">
-  <ul>
+<div class="flex justify-center items-center">
+  <ul class="w-full">
     <li
       class="text-lg font-bold text-gray-600 hover:text-gray-950 nm-flat-gray-200-sm mt-2 p-4 rounded-md"
     >
       <a href="02_research/research-any">RESEARCH</a>
+      {% assign sr = site.research | sort: 'date' %}
+      {% assign sr = sr | reverse %}
+      {% assign sr = sr | where_exp: 'item', 'item.showcase == true' %}
+      {% for res in sr %}
+        <p>{{ res.title }}</p>
+      {% endfor %}
     </li>
     <li
       class="text-lg font-bold text-gray-600 hover:text-gray-950 nm-flat-gray-200-sm mt-2 p-4 rounded-md"
@@ -20,8 +25,8 @@ layout: default
     >
       <a href="01_employment/employment-any">EMPLOYMENT</a>
     </li>
-    <!--  <li class="text-lg font-bold text-gray-600 hover:text-gray-950 nm-flat-gray-200-sm mt-2 p-4 rounded-md">
-           ACHIEVEMENTS
-        </li> -->
+    <!--
+      <li class="text-lg font-bold text-gray-600 hover:text-gray-950 nm-flat-gray-200-sm mt-2 p-4 rounded-md">       ACHIEVEMENTS  </li>
+    -->
   </ul>
 </div>

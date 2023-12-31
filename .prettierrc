@@ -1,0 +1,1 @@
+{ "parser": "liquid-html", "plugins": ["@shopify/prettier-plugin-liquid"] }
