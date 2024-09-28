@@ -9,18 +9,13 @@
 </head>
 
 <body>
-  <div class="flex justify-center min-h-screen bg-gray-100">
-    <div class="w-full lg:w-1/2 p-8 relative nm-flat-gray-100-lg">
-      {% include header.html %}
-      <div class="pb-16">
-        {{content}}
-      </div>
-      <div class="flex-grow" />
-      <div class="p-4 absolute bottom-0 right-0 w-full">
-        {% include footer.html %}
-      </div>
+  <div class="relative justify-center flex flex-col w-full min-h-screen bg-white">
+    {% include header.html %}
+    <div class="flex-grow">
+        {{ content }}
     </div>
-  </div>
+    {% include footer.html %}
+    </div>
 </body>
 
 </html>
